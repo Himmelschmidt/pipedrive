@@ -1,0 +1,58 @@
+# BaseOrganizationItemWithEditNameFlag
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**id** | Option<**i32**> | The ID of the organization | [optional]
+**company_id** | Option<**i32**> | The ID of the company related to the organization | [optional]
+**owner_id** | Option<[**models::Owner**](owner.md)> |  | [optional]
+**name** | Option<**String**> | The name of the organization | [optional]
+**active_flag** | Option<**bool**> | Whether the organization is active or not | [optional]
+**picture_id** | Option<[**models::BaseOrganizationItemAllOfPictureId**](BaseOrganizationItem_allOf_picture_id.md)> |  | [optional]
+**country_code** | Option<**String**> | The country code of the organization | [optional]
+**first_char** | Option<**String**> | The first character of the organization name | [optional]
+**add_time** | Option<**String**> | The creation date and time of the organization | [optional]
+**update_time** | Option<**String**> | The last updated date and time of the organization | [optional]
+**visible_to** | Option<**String**> | The visibility group ID of who can see the organization | [optional]
+**label** | Option<**i32**> | The label assigned to the organization. When the `label` field is updated, the `label_ids` field value will be overwritten by the `label` field value. | [optional]
+**label_ids** | Option<**Vec<i32>**> | The IDs of labels assigned to the organization. When the `label_ids` field is updated, the `label` field value will be set to the first value of the `label_ids` field. | [optional]
+**owner_name** | Option<**String**> | The name of the organization owner | [optional]
+**cc_email** | Option<**String**> | The BCC email associated with the organization | [optional]
+**email_messages_count** | Option<**i32**> | The count of email messages related to the organization | [optional]
+**people_count** | Option<**i32**> | The count of persons related to the organization | [optional]
+**activities_count** | Option<**i32**> | The count of activities related to the organization | [optional]
+**done_activities_count** | Option<**i32**> | The count of done activities related to the organization | [optional]
+**undone_activities_count** | Option<**i32**> | The count of undone activities related to the organization | [optional]
+**files_count** | Option<**i32**> | The count of files related to the organization | [optional]
+**notes_count** | Option<**i32**> | The count of notes related to the organization | [optional]
+**followers_count** | Option<**i32**> | The count of followers related to the organization | [optional]
+**address** | Option<**String**> | The full address of the organization | [optional]
+**address_subpremise** | Option<**String**> | The sub-premise of the organization location | [optional]
+**address_street_number** | Option<**String**> | The street number of the organization location | [optional]
+**address_route** | Option<**String**> | The route of the organization location | [optional]
+**address_sublocality** | Option<**String**> | The sub-locality of the organization location | [optional]
+**address_locality** | Option<**String**> | The locality of the organization location | [optional]
+**address_admin_area_level_1** | Option<**String**> | The level 1 admin area of the organization location | [optional]
+**address_admin_area_level_2** | Option<**String**> | The level 2 admin area of the organization location | [optional]
+**address_country** | Option<**String**> | The country of the organization location | [optional]
+**address_postal_code** | Option<**String**> | The postal code of the organization location | [optional]
+**address_formatted_address** | Option<**String**> | The formatted organization location | [optional]
+**open_deals_count** | Option<**i32**> | The count of open deals related with the item | [optional]
+**related_open_deals_count** | Option<**i32**> | The count of related open deals related with the item | [optional]
+**closed_deals_count** | Option<**i32**> | The count of closed deals related with the item | [optional]
+**related_closed_deals_count** | Option<**i32**> | The count of related closed deals related with the item | [optional]
+**won_deals_count** | Option<**i32**> | The count of won deals related with the item | [optional]
+**related_won_deals_count** | Option<**i32**> | The count of related won deals related with the item | [optional]
+**lost_deals_count** | Option<**i32**> | The count of lost deals related with the item | [optional]
+**related_lost_deals_count** | Option<**i32**> | The count of related lost deals related with the item | [optional]
+**next_activity_date** | Option<**String**> | The date of the next activity associated with the deal | [optional]
+**next_activity_time** | Option<**String**> | The time of the next activity associated with the deal | [optional]
+**next_activity_id** | Option<**i32**> | The ID of the next activity associated with the deal | [optional]
+**last_activity_id** | Option<**i32**> | The ID of the last activity associated with the deal | [optional]
+**last_activity_date** | Option<**String**> | The date of the last activity associated with the deal | [optional]
+**edit_name** | Option<**bool**> | If the company ID of the organization and company ID of the request is same or not | [optional]
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+
