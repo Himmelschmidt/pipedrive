@@ -1,15 +1,20 @@
 # Pipedrive API Client
 
-This crate provides a client for the Pipedrive API.
+This crate provides a client for the Pipedrive API, generated from a combination of OpenAPI specifications.
 
-This crate is generated from a combination of OpenAPI specifications.
+## Authentication
 
-## API Versions
+To use the Pipedrive API, you need to provide an API key. You can do this by creating a `Configuration` object and setting the `api_key` field.
 
-This client supports two versions of the Pipedrive API:
+```rust
+use pipedrive::v2::apis::configuration::{ApiKey, Configuration};
 
-*   **v1**: The stable version of the API. See the [v1 documentation](./docs/v1) for more details.
-*   **v2**: The beta version of the API. See the [v2 documentation](./docs/v2) for more details.
+let mut config = Configuration::new();
+config.api_key = Some(ApiKey {
+    prefix: None,
+    key: "YOUR_API_KEY".to_string(),
+});
+```
 
 ## Usage
 
@@ -18,11 +23,57 @@ Add this to your `Cargo.toml`:
 ```toml
 [dependencies]
 pipedrive = { path = "." }
+tokio = { version = "1", features = ["full"] }
 ```
 
-## Documentation
+Here is an example of how to get the current user:
 
-The documentation for this crate can be found in the `docs` directory.
+```rust
+use pipedrive::v1::apis::users_api;
+use pipedrive::v1::apis::configuration::{ApiKey, Configuration};
 
-*   [v1 Documentation](./docs/v1)
-*   [v2 Documentation](./docs/v2)
+#[tokio::main]
+async fn main() {
+    let mut config = Configuration::new();
+    config.api_key = Some(ApiKey {
+        prefix: None,
+        key: std::env::var("PIPEDRIVE_API_KEY").expect("PIPEDRIVE_API_KEY not set"),
+    });
+
+    let user = users_api::get_current_user(&config).await;
+
+    match user {
+        Ok(user) => println!("Successfully fetched user: {:?}", user),
+        Err(e) => eprintln!("Error fetching user: {}", e),
+    }
+}
+```
+
+## API Versions
+
+This client supports two versions of the Pipedrive API, which can be enabled via features in your `Cargo.toml`:
+
+- `v1`: The stable version of the API.
+- `v2`: The beta version of the API (enabled by default).
+
+To use a specific version, enable the corresponding feature:
+
+```toml
+[dependencies]
+pipedrive = { path = ".", features = ["v1"] }
+```
+
+## API Reference
+
+The full documentation for this crate, including all API endpoints and models, can be found in the `docs` directory.
+
+- [v1 Documentation](./docs/v1)
+- [v2 Documentation](./docs/v2)
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a pull request.
